@@ -18,7 +18,7 @@ func ConnectDB() {
 		log.Fatal("Failed to connect to database!")
 	}
 
-	// Auto-migrate tables
-	DB.AutoMigrate(&models.User{}, &models.Food{})
+	// Auto-migrate tables (including Contact)
+	DB.AutoMigrate(&models.User{}, &models.Food{}, &models.Contact{})
 	log.Println("Database connected & migrated successfully.")
 }
