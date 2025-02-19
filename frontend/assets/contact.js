@@ -1,31 +1,44 @@
 import API_BASE_URL from "./config.js";
 
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
 
-    const name = document.getElementById("contactName").value.trim();
-    const email = document.getElementById("contactEmail").value.trim();
-    const message = document.getElementById("contactMessage").value.trim();
-
-    if (!name || !email || !message) {
-        alert("All fields are required!");
+    if (!contactForm) {
+        console.error("❌ contact-form element not found!");
         return;
     }
 
-    try {
-        const response = await fetch(`${API_BASE_URL}/contact`, { // ❌ Removed trailing slash
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, message }),
-        });
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-        if (!response.ok) throw new Error("Failed to send message");
+        const name = document.querySelector("input[name='name']").value.trim();
+        const email = document.querySelector("input[name='email']").value.trim();
+        const message = document.querySelector("textarea[name='message']").value.trim();
 
-        const data = await response.json();
-        alert(data.message);
-        document.getElementById("contactForm").reset(); // ✅ Clear form after success
-    } catch (error) {
-        console.error("Error:", error);
-        alert("Could not send message. Please try again.");
-    }
+        if (!name || !email || !message) {
+            alert("⚠️ All fields are required!");
+            return;
+        }
+
+        console.log("📩 Submitting contact form:", { name, email, message });
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/contact`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            const data = await response.json();
+            console.log("✅ Contact API Response:", data);
+
+            if (!response.ok) throw new Error(data.error || "Contact submission failed");
+
+            alert("🎉 Message sent successfully!");
+            contactForm.reset();
+        } catch (error) {
+            console.error("❌ Error submitting contact form:", error);
+            alert("🚨 Failed to send message. Please try again.");
+        }
+    });
 });

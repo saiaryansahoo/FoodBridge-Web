@@ -27,19 +27,16 @@
     <section class="contact-form">
         <h1>Contact Us</h1>
         <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="text" id="contactName" name="name" placeholder="Your Name" required>
+            <input type="email" id="contactEmail" name="email" placeholder="Your Email" required>
+            <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
     </section>
 
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Thank you for reaching out! We will contact you soon.');
-        });
-    </script>
+    <!-- 🔥 Link to the contact.js file -->
+    <script type="module" src="../assets/config.js"></script>
+    <script type="module" src="../assets/contact.js"></script>
 
     <!-- Footer -->
     <footer>
