@@ -9,6 +9,6 @@ import (
 func ContactRoutes(r *gin.Engine) {
 	contact := r.Group("/contact")
 	{
-		contact.POST("/", controllers.ContactForm)
+		contact.POST("", controllers.ContactForm) // ✅ Correct API route
 	}
 }

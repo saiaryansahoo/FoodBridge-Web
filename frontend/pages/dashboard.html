@@ -28,17 +28,22 @@
         <h1>Welcome to Your Dashboard</h1>
         <button onclick="listFood()">List Surplus Food</button>
         <button onclick="requestFood()">Request Food</button>
+
+        <!-- Food Listing Form -->
+        <form id="foodForm">
+            <input type="text" id="foodName" placeholder="Food Name" required>
+            <input type="text" id="foodDescription" placeholder="Description" required>
+            <input type="number" id="foodQuantity" placeholder="Quantity" required>
+            <input type="text" id="foodLocation" placeholder="Location" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Available Food Items</h2>
+        <div id="foodList"></div>
     </section>
 
-    <script>
-        function listFood() {
-            alert("Feature to list surplus food coming soon!");
-        }
-
-        function requestFood() {
-            alert("Feature to request food coming soon!");
-        }
-    </script>
+    <!-- Link to dashboard.js -->
+    <script defer src="../assets/dashboard.js"></script>
 
     <!-- Footer -->
     <footer>
