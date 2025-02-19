@@ -1,13 +1,22 @@
 import API_BASE_URL from "./config.js";
 
+// ✅ Function to check authentication status
+function checkAuth() {
+    const token = localStorage.getItem("token");
+    const dashboard = document.getElementById("dashboard");
+
+    if (!token) {
+        alert("You need to log in first!");
+        window.location.href = "signup.html"; // Redirect to login page
+    } else {
+        dashboard.style.display = "block"; // Show dashboard if logged in
+        fetchFoodItems(); // Fetch food items only after authentication
+    }
+}
+
 // ✅ Function to fetch food items
 async function fetchFoodItems() {
     const token = localStorage.getItem("token");
-    if (!token) {
-        alert("You need to log in first!");
-        window.location.href = "signup.html";
-        return;
-    }
 
     try {
         const response = await fetch(`${API_BASE_URL}/food/`, {
@@ -45,8 +54,8 @@ function displayFoodItems(foodItems) {
     });
 }
 
-// ✅ Event listener for food form submission (Restaurants Only)
-document.getElementById("foodForm").addEventListener("submit", async (e) => {
+// ✅ Function to handle food listing form submission
+document.getElementById("foodForm")?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
@@ -87,5 +96,5 @@ document.getElementById("foodForm").addEventListener("submit", async (e) => {
     }
 });
 
-// ✅ Ensure the user is logged in before loading data
-document.addEventListener("DOMContentLoaded", fetchFoodItems);
+// ✅ Ensure user is logged in before displaying the dashboard
+document.addEventListener("DOMContentLoaded", checkAuth);

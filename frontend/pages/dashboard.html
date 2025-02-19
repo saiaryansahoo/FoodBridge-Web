@@ -20,14 +20,14 @@
                 <li><a href="updates.html">Real-time Updates</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="testimonials.html">Testimonials</a></li>
+                <li><button id="logoutBtn">Logout</button></li> <!-- Logout Button -->
             </ul>
         </nav>
     </header>
 
-    <section class="dashboard">
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard" style="display: none;">
         <h1>Welcome to Your Dashboard</h1>
-        <button onclick="listFood()">List Surplus Food</button>
-        <button onclick="requestFood()">Request Food</button>
 
         <!-- Food Listing Form -->
         <form id="foodForm">
@@ -42,8 +42,26 @@
         <div id="foodList"></div>
     </section>
 
-    <!-- Link to dashboard.js -->
-    <script defer src="../assets/dashboard.js"></script>
+    <!-- ✅ Authentication Check -->
+    <script type="module" src="../assets/config.js"></script>
+    <script type="module" src="../assets/dashboard.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                alert("You need to log in first!");
+                window.location.href = "signup.html";
+            } else {
+                document.getElementById("dashboard").style.display = "block";
+            }
+
+            // ✅ Logout Functionality
+            document.getElementById("logoutBtn").addEventListener("click", function () {
+                localStorage.removeItem("token");
+                window.location.href = "signup.html"; // Redirect to login
+            });
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
