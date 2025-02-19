@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodBridge - Connecting Surplus Food to Those in Need</title>
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="stylesheet" href="../assets/animation.css">
-    <script defer src="../assets/script.js"></script>
+    <title>FoodBridge - Responsive Navbar</title>
+    <link rel="stylesheet" href="../assets/index.css">
 </head>
 <body>
 
@@ -14,7 +12,8 @@
     <header>
         <nav>
             <div class="logo">FoodBridge</div>
-            <ul>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger Icon -->
+            <ul id="nav-links">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./how-it-works.html">How It Works</a></li>
                 <li><a href="./signup.html">Sign Up</a></li>
@@ -36,14 +35,17 @@
     <!-- Features Section -->
     <section class="features">
         <div class="feature-box">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Restaurants">
             <h2>Restaurants</h2>
             <p>List surplus food easily and help reduce waste.</p>
         </div>
         <div class="feature-box">
+            <img src="https://images.unsplash.com/photo-1589927986089-35812388d1c2" alt="NGOs">
             <h2>NGOs</h2>
             <p>Request food donations and support your community.</p>
         </div>
         <div class="feature-box">
+            <img src="https://images.unsplash.com/photo-1598514983161-44b6c3b5bbf4" alt="Donors">
             <h2>Donors</h2>
             <p>Contribute to the cause and make an impact.</p>
         </div>
@@ -53,6 +55,16 @@
     <footer>
         <p>&copy; 2025 FoodBridge. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
