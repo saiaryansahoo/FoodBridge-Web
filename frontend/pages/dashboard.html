@@ -20,7 +20,7 @@
                 <li><a href="updates.html">Real-time Updates</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="testimonials.html">Testimonials</a></li>
-                <li><button id="logoutBtn">Logout</button></li> <!-- Logout Button -->
+                <li><button id="logoutBtn">Logout</button></li>
             </ul>
         </nav>
     </header>
@@ -28,6 +28,8 @@
     <!-- Dashboard Section -->
     <section class="dashboard" id="dashboard" style="display: none;">
         <h1>Welcome to Your Dashboard</h1>
+        <button onclick="listFood()">List Surplus Food</button>
+        <button onclick="requestFood()">Request Food</button>
 
         <!-- Food Listing Form -->
         <form id="foodForm">
@@ -58,7 +60,7 @@
             // ✅ Logout Functionality
             document.getElementById("logoutBtn").addEventListener("click", function () {
                 localStorage.removeItem("token");
-                window.location.href = "signup.html"; // Redirect to login
+                window.location.href = "signup.html";
             });
         });
     </script>

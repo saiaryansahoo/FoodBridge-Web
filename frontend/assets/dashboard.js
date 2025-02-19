@@ -45,7 +45,7 @@ function displayFoodItems(foodItems) {
 
     foodItems.forEach((food) => {
         foodList.innerHTML += `
-            <div class="food-item">
+            <div class="food-Form">
                 <h3>${food.name}</h3>
                 <p>${food.description}</p>
                 <p><strong>Quantity:</strong> ${food.quantity}</p>
@@ -66,8 +66,9 @@ document.getElementById("foodForm")?.addEventListener("submit", async (e) => {
 
     const name = document.getElementById("foodName").value.trim();
     const description = document.getElementById("foodDescription").value.trim();
-    const quantity = document.getElementById("foodQuantity").value.trim();
+    const quantity = parseInt(document.getElementById("foodQuantity").value.trim(), 10);
     const location = document.getElementById("foodLocation").value.trim();
+
 
     if (!name || !description || !quantity || !location) {
         alert("All fields are required!");

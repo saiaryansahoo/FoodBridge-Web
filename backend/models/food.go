@@ -7,5 +7,5 @@ type Food struct {
 	Name       string `json:"name"`
 	Quantity   int `json:"quantity"`
 	Restaurant string `json:"restaurant"`
-	Status     string `json:"status" gorm:"default:Available"`
+	Location   string `json:"location"`
 }
