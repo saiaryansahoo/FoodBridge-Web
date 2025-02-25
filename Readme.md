@@ -190,7 +190,6 @@ SELECT * FROM food_items;
 ```sql
 SELECT * FROM contacts;
 ```
-
 ---
 
 ## Contribution Guide 🚀
