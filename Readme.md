@@ -215,3 +215,6 @@ This project is **MIT Licensed**.
 ## Contact
 📧 **Sai Aryan Sahoo** – [LinkedIn](https://linkedin.com/in/saiaryansahoo)  
 🔗 **GitHub**: [saiaryansahoo](https://github.com/saiaryansahoo)  
+
+
+## Link to Mobile App - [FoodBridge](https://github.com/saiaryansahoo/Food-Bridge)
